@@ -6,7 +6,7 @@
 /*   By: mbompoil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 18:06:59 by mbompoil          #+#    #+#             */
-/*   Updated: 2016/01/31 06:14:32 by mbompoil         ###   ########.fr       */
+/*   Updated: 2016/01/31 09:03:40 by mbompoil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 
 void	ft_displayg(int col, int line);
 
-void	ft_exit()
+void	ft_exit(void)
 {
 	endwin();
 	exit(0);
 }
 
-void		ft_init(void)
+void	ft_init(void)
 {
 	int		col;
 	int		line;
@@ -38,7 +38,7 @@ void		ft_init(void)
 		{
 			clear();
 			getmaxyx(stdscr, col, line);
-			if (col < 42 || line < 42)
+			if (col < 30 || line < 30)
 				ft_exit();
 			ft_displayg(col, line);
 			sleep(1);
@@ -48,8 +48,8 @@ void		ft_init(void)
 	ft_exit();
 }
 
-int		main()
+int		main(void)
 {
 	ft_init();
-	return(0);
+	return (0);
 }
