@@ -6,32 +6,50 @@
 /*   By: mbompoil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 18:06:59 by mbompoil          #+#    #+#             */
-/*   Updated: 2016/01/30 23:09:19 by mbompoil         ###   ########.fr       */
+/*   Updated: 2016/01/31 06:14:32 by mbompoil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ncurses.h>
+#include <unistd.h>
+#include <stdlib.h>
 
-void	ft_display(int col, int line);
+void	ft_displayg(int col, int line);
 
-int		main(void)
+void	ft_exit()
+{
+	endwin();
+	exit(0);
+}
+
+void		ft_init(void)
 {
 	int		col;
 	int		line;
-	
+
 	initscr();
 	noecho();
 	raw();
-	getmaxyx(stdscr, col, line);
-	ft_display(col, line);
-	while (getch() == 410)
+	keypad(stdscr, TRUE);
+	ft_displayg(col, line);
+	while (getch() != 27)
 	{
-		clear();
-		getmaxyx(stdscr, col, line);
-		ft_display(col, line);
-		refresh();
+		while (getch() == 410)
+		{
+			clear();
+			getmaxyx(stdscr, col, line);
+			if (col < 42 || line < 42)
+				ft_exit();
+			ft_displayg(col, line);
+			sleep(1);
+			refresh();
+		}
 	}
-	getch();
-	endwin();
-	return (0);
+	ft_exit();
+}
+
+int		main()
+{
+	ft_init();
+	return(0);
 }
