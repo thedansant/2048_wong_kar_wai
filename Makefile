@@ -6,13 +6,14 @@
 #    By: jsoudier <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/30 13:48:02 by jsoudier          #+#    #+#              #
-#    Updated: 2016/01/31 12:57:52 by mbompoil         ###   ########.fr        #
+#    Updated: 2016/01/31 21:22:04 by mbompoil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = game_2048
 
 O_SRC = main.o ft_display.o ft_left.o ft_right.o ft_down.o ft_move.o ft_up.o \
+		ft_check.o ft_uresogood.o ft_game_over.o \
 
 FLAG = -Wextra -Wall -Werror
 

@@ -6,13 +6,13 @@
 /*   By: jsoudier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/31 09:03:32 by jsoudier          #+#    #+#             */
-/*   Updated: 2016/01/31 12:44:21 by jsoudier         ###   ########.fr       */
+/*   Updated: 2016/01/31 21:23:41 by jsoudier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
-static void	ft_merge_d(int **box)
+static int		**ft_merge_d(int **box)
 {
 	int	i;
 	int	j;
@@ -27,12 +27,37 @@ static void	ft_merge_d(int **box)
 			{
 				box[i][j] = box[i][j] + box[i][j];
 				box[i - 1][j] = 0;
+				box[4][0] = box[4][0] + 1;
+				box[4][1] = box[4][1] + box[i][j];
 			}
+		}
+	}
+	return (box);
+}
+
+static void		ft_compare(int **box, int tmp_i, int i, int j)
+{
+	if (tmp_i != 3 && box[tmp_i + 1][j] != 0)
+	{
+		box[tmp_i][j] = box[i][j];
+		if (i != tmp_i)
+		{
+			box[4][0] = box[4][0] + 1;
+			box[i][j] = 0;
+		}
+	}
+	if (tmp_i == 3)
+	{
+		box[tmp_i][j] = box[i][j];
+		if (i != (tmp_i))
+		{
+			box[4][0] = box[4][0] + 1;
+			box[i][j] = 0;
 		}
 	}
 }
 
-static void	ft_refill(int **box, int tmp_i, int i, int j)
+static int		**ft_refill(int **box, int tmp_i, int i, int j)
 {
 	while (++i < 4)
 	{
@@ -44,24 +69,14 @@ static void	ft_refill(int **box, int tmp_i, int i, int j)
 				tmp_i = i;
 				while (tmp_i < 3 && box[tmp_i + 1][j] == 0)
 					tmp_i++;
-				if (tmp_i != 3 && box[tmp_i + 1][j] != 0)
-				{
-					box[tmp_i][j] = box[i][j];
-					if (i != tmp_i)
-						box[i][j] = 0;
-				}
-				if (tmp_i == 3)
-				{
-					box[tmp_i][j] = box[i][j];
-					if (i != (tmp_i))
-						box[i][j] = 0;
-				}
+				ft_compare(box, tmp_i, i, j);
 			}
 		}
 	}
+	return (box);
 }
 
-int			**ft_down(int **box)
+int				**ft_down(int **box)
 {
 	int	i;
 	int	j;
@@ -74,9 +89,9 @@ int			**ft_down(int **box)
 	tmp_i = 0;
 	while (++counter < 3)
 	{
-		ft_refill(box, tmp_i, i, j);
+		box = ft_refill(box, tmp_i, i, j);
 	}
-	ft_merge_d(box);
+	box = ft_merge_d(box);
 	ft_refill(box, tmp_i, i, j);
 	return (box);
 }
