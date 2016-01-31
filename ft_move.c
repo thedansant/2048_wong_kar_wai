@@ -6,13 +6,11 @@
 /*   By: jsoudier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 18:12:18 by jsoudier          #+#    #+#             */
-/*   Updated: 2016/01/31 12:19:09 by jsoudier         ###   ########.fr       */
+/*   Updated: 2016/01/31 12:38:53 by jsoudier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
-
-void	ft_print(int  **begin);
 
 static int	**ft_push(int **box, int ch)
 {
@@ -27,9 +25,7 @@ static int	**ft_push(int **box, int ch)
 	return (box);
 }
 
-/*memalloc met a o les chanp de ma structure ? */
-
-int	**ft_rand(int **box, int start)
+int			**ft_rand(int **box, int start)
 {
 	int i;
 	int n;
@@ -43,7 +39,7 @@ int	**ft_rand(int **box, int start)
 	{
 		pos = rand() % 16;
 		i++;
-		if (box[pos / 4][pos % 4]== 0 && start == 1)
+		if (box[pos / 4][pos % 4] == 0 && start == 1)
 		{
 			box[pos / 4][pos % 4] = n;
 			i = 0;
@@ -55,11 +51,8 @@ int	**ft_rand(int **box, int start)
 	return (box);
 }
 
-int	**ft_move(int	**box, int ch)
+int			**ft_move(int **box, int ch)
 {
-	//box = ft_rand(box, 1);
-	//ft_print(box);
 	box = ft_push(box, ch);
-	//box = ft_rand(box, 0);
 	return (box);
 }

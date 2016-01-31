@@ -6,7 +6,7 @@
 /*   By: jsoudier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/31 09:03:32 by jsoudier          #+#    #+#             */
-/*   Updated: 2016/01/31 09:53:10 by jsoudier         ###   ########.fr       */
+/*   Updated: 2016/01/31 12:44:21 by jsoudier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	ft_merge_d(int **box)
 	while (--i >= 0)
 	{
 		j = 4;
-		while(--j >= 0)
+		while (--j >= 0)
 		{
 			if (i != 0 && box[i][j] == box[i - 1][j] && box[i][j] != 0)
 			{
@@ -32,14 +32,14 @@ static void	ft_merge_d(int **box)
 	}
 }
 
-static void	ft_refill(int **box, int tmp_i, int i ,int j)
+static void	ft_refill(int **box, int tmp_i, int i, int j)
 {
 	while (++i < 4)
 	{
 		j = -1;
-		while(++j < 4)
+		while (++j < 4)
 		{
-			if(box[i][j] != 0)
+			if (box[i][j] != 0)
 			{
 				tmp_i = i;
 				while (tmp_i < 3 && box[tmp_i + 1][j] == 0)
@@ -61,7 +61,7 @@ static void	ft_refill(int **box, int tmp_i, int i ,int j)
 	}
 }
 
-int	**ft_down(int **box)
+int			**ft_down(int **box)
 {
 	int	i;
 	int	j;
@@ -74,9 +74,9 @@ int	**ft_down(int **box)
 	tmp_i = 0;
 	while (++counter < 3)
 	{
-		ft_refill(box, tmp_i, i , j);
+		ft_refill(box, tmp_i, i, j);
 	}
 	ft_merge_d(box);
-	ft_refill(box, tmp_i, i , j);
+	ft_refill(box, tmp_i, i, j);
 	return (box);
 }

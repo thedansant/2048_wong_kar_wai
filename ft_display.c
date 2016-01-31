@@ -6,15 +6,13 @@
 /*   By: mbompoil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 22:06:34 by mbompoil          #+#    #+#             */
-/*   Updated: 2016/01/31 11:27:54 by mbompoil         ###   ########.fr       */
+/*   Updated: 2016/01/31 14:46:14 by mbompoil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ncurses.h>
+#include "game.h"
 
-int		**ft_move(void);
-
-void		ft_displayn(int col, int line, int **tab)
+static void		ft_displayn(int col, int line, int **tab)
 {
 	mvprintw(col / 8, line / 8, "%d", tab[0][0]);
 	mvprintw(col * 3 / 8, line * 3 / 8, "%d", tab[1][1]);
@@ -34,7 +32,7 @@ void		ft_displayn(int col, int line, int **tab)
 	mvprintw(col * 7 / 8, line * 5 / 8, "%d", tab[3][2]);
 }
 
-void		ft_displayg(int col, int line, int **box)
+void			ft_displayg(int col, int line, int **box)
 {
 	getmaxyx(stdscr, col, line);
 	move(col - 1, 0);
