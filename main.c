@@ -6,7 +6,7 @@
 /*   By: mbompoil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 18:06:59 by mbompoil          #+#    #+#             */
-/*   Updated: 2016/01/31 22:59:38 by mbompoil         ###   ########.fr       */
+/*   Updated: 2016/01/31 23:28:32 by mbompoil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ static void		ft_init(int **box, int ch)
 	{
 		refresh();
 		clear();
-	//	ft_check_min(col, line);
 		box = ft_move(box, ch);
 		if (box[4][0] > 0)
 			box = ft_rand(box, 0);
@@ -49,7 +48,7 @@ static void		ft_init(int **box, int ch)
 	}
 }
 
-int			main(void)
+int				main(void)
 {
 	int	**box;
 	int	i;
@@ -65,7 +64,7 @@ int			main(void)
 		box = ft_rand(box, 1);
 		ft_init(box, ch);
 	}
-	clear();
-	ft_putstr("1 + 1 ?\n");
+	else
+		ft_putstr("1 + 1 ?\n");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mbompoil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/31 05:32:21 by mbompoil          #+#    #+#             */
-/*   Updated: 2016/01/31 22:54:33 by mbompoil         ###   ########.fr       */
+/*   Updated: 2016/01/31 23:21:08 by mbompoil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,5 @@ int		ft_check_value(int value)
 		value /= 2;
 	if (value == 1)
 		return (1);
-	else
-		return (0);
+	return (2);
 }
-
-/*int		ft_check_min(int col, int line)
-{
-	if (col < 30 || line < 30)
-		return (0);
-}*/

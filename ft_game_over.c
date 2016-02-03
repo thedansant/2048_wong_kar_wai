@@ -6,7 +6,7 @@
 /*   By: jsoudier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/31 14:09:46 by jsoudier          #+#    #+#             */
-/*   Updated: 2016/01/31 22:10:12 by mbompoil         ###   ########.fr       */
+/*   Updated: 2016/01/31 22:10:07 by jsoudier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ static int	ft_end(int **box)
 {
 	int	i;
 	int	j;
-//	int count;
 
 	i = 0;
 	while (i < 4)

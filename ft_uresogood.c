@@ -6,7 +6,7 @@
 /*   By: mbompoil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/31 20:51:41 by mbompoil          #+#    #+#             */
-/*   Updated: 2016/01/31 22:58:47 by mbompoil         ###   ########.fr       */
+/*   Updated: 2016/01/31 23:21:43 by mbompoil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,5 @@ int		ft_uresogood(int **box)
 		ft_putstr("URE BAD\n");
 		return (0);
 	}
+	return (2);
 }
